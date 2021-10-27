@@ -1,51 +1,73 @@
-## Python virtual environment (ref: https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/development_environment#using_django_inside_a_python_virtual_environment)
+## Python virtual environment 
 
-1. Install tool using pip3
+(ref: https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/development_environment#using_django_inside_a_python_virtual_environment)
+
+1. Install tool using pip3:
+```
 $ sudo pip3 install virtualenvwrapper
+```
 
 2. Setting enrironment variables
+
 2.1. Directly, using `export` command
+```
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS=' -p /usr/bin/python3 '
 export PROJECT_HOME=$HOME/Devel
 source /usr/local/bin/virtualenvwrapper.sh
+```
 
 2.2. Fill in `.bashrc` file
+
 - $ code ~/.bashrc
 - Fill lines
+```
 WORKON_HOME=$HOME/.virtualenvs
 VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 VIRTUALENVWRAPPER_VIRTUALENV_ARGS=' -p /usr/bin/python3 '
 PROJECT_HOME=$HOME/Devel
+```
 - $ source ~/.bashrc
-
+###
 3. Creating virtual environment
+```
 - $ mkvirtualenv my_django_environment
+```
 
+###
 4. Using virtual environment: commands
+```
 `deactivate` — Exit out of the current Python virtual environment
 `workon` — List available virtual environments
 `workon my_django_environment` — Activate the specified Python virtual environment
 `rmvirtualenv my_django_environment`— Remove the specified environment.
-
+```
 
 ## Create skeleton Django project
 1. Create a folder contain project
+```
 $ mkdir django_project
 $ cd django_project
+```
 
-2. Start project
+2. Start project:
+```
 $ django-admin startproject mysite .
+```
 
 3. Run server
+```
 $ python manage.py runserver
+```
 
 4. Go to http://127.0.0.1:8000/
 
 5. Start app
+```
 $ python manage.py startapp app_name
     ex: python manage.py startapp stationery
+```
 
 5.1. Registering app: `/mysite/settings.py`
 ```
@@ -105,36 +127,51 @@ urlpatterns = [
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 ```
 
-`/mysite/settings.py`
+- `/mysite/settings.py`
 ```
 STATIC_ROOT = BASE_DIR.joinpath("static")
 ```
 7. Running migration
+```
 $ python3 manage.py makemigrations
 $ python3 manage.py migrate
+```
 
 8. Create supper user
+```
 $ python manage.py createsuperuser
+```
 
 9. Manage dependencies: `requirements.txt`
+```
 $ pip3 freeze > requirements.txt
+```
 
-## Database setting (ref: https://www.digitalocean.com/community/tutorials/how-to-create-a-django-app-and-connect-it-to-a-database)
+## Database setting 
+
+(ref: https://www.digitalocean.com/community/tutorials/how-to-create-a-django-app-and-connect-it-to-a-database)
 1. Install MySQL database server
+```
 $ sudo apt install mysql-server
+```
 
 2. Install MySQL DB connector
+```
 $ sudo apt install python3-dev libmysqlclient-dev default-libmysqlclient-dev
 $ pip install mysqlclient
+```
 
 3. Create database
+
 3.1. Create user
+```
 $ sudo mysql -u root
 > CREATE DATABASE db_name;
 > SHOW DATABASES;
 > CREATE USER 'djangouser'@'%' IDENTIFIED WITH mysql_native_password BY '123456';
 > GRANT ALL ON db_name.* TO 'djangouser'@'%';
 > FLUSH PRIVILEGES;
+```
 
 3.2. Create file config `my.cnf`
 ```
