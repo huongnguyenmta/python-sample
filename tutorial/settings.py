@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,7 +36,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "rest_framework",
+    # "rest_framework",
     "userpost.apps.UserpostConfig",
 ]
 
@@ -74,25 +73,12 @@ WSGI_APPLICATION = "tutorial.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": BASE_DIR / "db.sqlite3",
-#     }
-# }
-
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
         "OPTIONS": {
             "read_default_file": "/home/huongnt/SUN/django_tutorial/dj_db_config/mysql/my.cnf",
         },
-        # "NAME": "user_post",
-        # "USER": "djangouser",
-        # "PASSWORD": "password",
-        # "HOST": "127.0.0.1",
-        # "PORT": "3306",
     }
 }
 
@@ -149,3 +135,7 @@ REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 10,
 }
+
+
+AUTH_USER_MODEL = "userpost.CustomUser"
+AUTHENTICATION_BACKENDS = ("django.contrib.auth.backends.ModelBackend",)
