@@ -20,15 +20,29 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 2.2. Fill in `.bashrc` file
 
-- $ code ~/.bashrc
+- Open file '.bashrc'
+```
+$ code ~/.bashrc
+```
 - Fill lines
 ```
 WORKON_HOME=$HOME/.virtualenvs
 VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 VIRTUALENVWRAPPER_VIRTUALENV_ARGS=' -p /usr/bin/python3 '
 PROJECT_HOME=$HOME/Devel
+
+# load virtualenvwrapper for python (after custom PATHs)
+venvwrap="virtualenvwrapper.sh"
+/usr/bin/which -a $venvwrap
+if [ $? -eq 0 ]; then
+    venvwrap=`/usr/bin/which $venvwrap`
+    source $venvwrap
+fi
 ```
-- $ source ~/.bashrc
+- Load environment
+``` 
+$ source ~/.bashrc
+```
 ###
 3. Creating virtual environment
 ```
