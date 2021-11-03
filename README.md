@@ -1,3 +1,10 @@
+## Installing Python3
+- Ubuntu Linux 20.04 LTS includes Python 3.8.5 by default
+- Install _pip3_ (Python Package Index tool)
+```
+$ sudo apt install python3-pip
+```
+
 ## Python virtual environment 
 
 (ref: https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/development_environment#using_django_inside_a_python_virtual_environment)
@@ -48,6 +55,11 @@ $ source ~/.bashrc
 3. Creating virtual environment
 ```
 $ mkvirtualenv my_django_environment
+```
+4. Installing Django
+- // Check the latest version: https://www.djangoproject.com/download/
+```
+$ pip3 install django~=3.1
 ```
 
 ###
@@ -106,9 +118,9 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
         <!-- "OPTIONS": {
-            "read_default_file": "/home/huongnt/SUN/django_tutorial/dj_db_config/mysql/my.cnf",
+            "read_default_file": "/dj_db_config/mysql/my.cnf",
         }, -->
-        "NAME": "user_post",
+        "NAME": "db_name",
         "USER": "djangouser",
         "PASSWORD": "password",
         "HOST": "127.0.0.1",
