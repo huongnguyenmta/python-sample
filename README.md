@@ -15,6 +15,7 @@ export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS=' -p /usr/bin/python3 '
 export PROJECT_HOME=$HOME/Devel
+
 source /usr/local/bin/virtualenvwrapper.sh
 ```
 
@@ -46,16 +47,19 @@ $ source ~/.bashrc
 ###
 3. Creating virtual environment
 ```
-- $ mkvirtualenv my_django_environment
+$ mkvirtualenv my_django_environment
 ```
 
 ###
 4. Using virtual environment: commands
 ```
-`deactivate` — Exit out of the current Python virtual environment
-`workon` — List available virtual environments
-`workon my_django_environment` — Activate the specified Python virtual environment
-`rmvirtualenv my_django_environment`— Remove the specified environment.
+$ deactivate // Exit out of the current Python virtual environment
+
+$ workon // List available virtual environments
+
+$ workon my_django_environment // Activate the specified Python virtual environment
+
+$ rmvirtualenv my_django_environment // Remove the specified environment.
 ```
 
 ## Create skeleton Django project
@@ -80,7 +84,7 @@ $ python manage.py runserver
 5. Start app
 ```
 $ python manage.py startapp app_name
-    ex: python manage.py startapp stationery
+// ex: python manage.py startapp stationery
 ```
 
 5.1. Registering app: `/mysite/settings.py`
