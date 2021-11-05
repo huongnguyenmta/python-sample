@@ -23,3 +23,5 @@ $ python manage.py migrate
 ```
 4. Working with QuerySet in Django
 refs: https://docs.djangoproject.com/en/3.2/ref/models/querysets/
+
+## Custom Dashboard page
