@@ -19,7 +19,11 @@ $ python manage.py makemigrations
 ```
 - Apply changes to DB
 ```
+# Apply for all
 $ python manage.py migrate
+
+# Apply for project app
+$ python manage.py migrate app_name
 ```
 4. Working with QuerySet in Django
 refs: https://docs.djangoproject.com/en/3.2/ref/models/querysets/
