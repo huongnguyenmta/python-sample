@@ -59,10 +59,11 @@ $ python manage.py shell
 ...
 
 # `Field lookups`
-> MyUser.objects.filter(id_exact=1)
+> MyUser.objects.filter(id__exact=1)
 
 # Filter objects are not match by condition: return QuerySet
 > MyUser.objects.exclude(id=1)
 ```
 
 ## Custom Dashboard page
+- Divide components: _sidebar, _navbar, _footer
